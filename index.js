@@ -24,7 +24,8 @@ App.post("/api/v1/account/create", async (req, res) => {
     
   } else {
     res.send("User created")
-    await UserSchema.insertOne(User);
+    const User = UserSchema.insertMany(User);
+    console.log(User)
   }
 
   
