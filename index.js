@@ -1,4 +1,4 @@
-const Express = rqeuire("expres");
+const Express = require("expres");
 const App = Express();
 const Port = 3000
 
