@@ -1,6 +1,9 @@
 const Express = require("express");
+const bodyParser = require("body-parser")
 const App = Express();
 const Port = 3000
+
+App.use(bodyParser.json());
 
 const UserSchema = require("./UserDB")
 const MessageSchema = require("./MessageDB")
