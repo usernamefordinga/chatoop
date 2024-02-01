@@ -42,10 +42,12 @@ App.post("/api/v1/message/send", async (req,res) => {
   }
 
   if (await UserSchema.findOne(User)) {
-    const Message = {
-      
+    const chatMessage = {
+      "user_name": username,
+      "message": message
     }
-    await MessageDB.create()
+    await MessageDB.create(chatMessage)
+    res.send("Message sent successfully!")
   } else {
     res.send("Failed to authenticate user, please try again!")
   }
