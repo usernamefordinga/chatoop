@@ -46,7 +46,7 @@ App.post("/api/v1/message/send", async (req,res) => {
       "user_name": username,
       "message": message
     }
-    await MessageDB.create(chatMessage)
+    await MessageSchema.create(chatMessage)
     res.send("Message sent successfully!")
   } else {
     res.send("Failed to authenticate user, please try again!")
