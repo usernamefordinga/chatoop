@@ -54,7 +54,25 @@ App.post("/api/v1/message/send", async (req,res) => {
   
 })
 
+App.get("/api/v1/message/get", async (req, res) => {
+  try {
+    // Retrieve the last 25 messages from the database
+    const messages = await MessageSchema.find({})
+      .sort({ createdAt: -1 })
+      .limit(25);
 
+    // Format the messages with user information
+    const formattedMessages = messages.map((msg) => ({
+      user: msg.user_name,
+      message: msg.message,
+    }));
+
+    res.json(formattedMessages);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
 App.listen(Port, () => {
   console.log(`Server is running at port ${Port}`);
