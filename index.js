@@ -10,7 +10,6 @@ const MessageSchema = require("./MessageDB")
 
 
 App.post("/api/v1/account/create", async (req, res) => {
-  console.log(req.body)
   const username = await req.body.username
   const password = await req.body.password
 
