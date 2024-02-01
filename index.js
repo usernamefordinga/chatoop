@@ -34,7 +34,7 @@ App.post("/api/v1/account/create", async (req, res) => {
 App.post("/api/v1/message/send", async (req,res) => {
   const username = await req.body.username
   const password = await req.body.password
-  const message = await.req.body.message
+  const message =  await req.body.message
 
     const User = {
     "user_name": username,
