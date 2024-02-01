@@ -22,9 +22,8 @@ App.post("/api/v1/account/create", async (req, res) => {
     res.send("User already exists")
     
   } else {
-    res.send("User created")
-    const User = UserSchema.insertMany({"user_name": username, "password": password});
-    console.log(User)
+    await UserSchema.create({"user_name": username, "password": password});
+    res.send("User created")    
   }
 
   
