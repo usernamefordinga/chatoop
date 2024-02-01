@@ -31,6 +31,26 @@ App.post("/api/v1/account/create", async (req, res) => {
   
 })
 
+App.post("/api/v1/message/send", async (req,res) => {
+  const username = await req.body.username
+  const password = await req.body.password
+  const message = await.req.body.message
+
+    const User = {
+    "user_name": username,
+    "password": password
+  }
+
+  if (await UserSchema.findOne(User)) {
+    const Message = {
+      
+    }
+    await MessageDB.create()
+  } else {
+    res.send("Failed to authenticate user, please try again!")
+  }
+  
+})
 
 
 
