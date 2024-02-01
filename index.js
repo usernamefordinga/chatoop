@@ -23,7 +23,7 @@ App.post("/api/v1/account/create", async (req, res) => {
     
   } else {
     res.send("User created")
-    const User = UserSchema.insertOne({"user_name": username, "password": password});
+    const User = UserSchema.insertMany({"user_name": username, "password": password});
     console.log(User)
   }
 
