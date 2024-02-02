@@ -31,6 +31,23 @@ App.post("/api/v1/account/create", async (req, res) => {
   
 })
 
+App.post("/api/v1/account/login", async (req, res) => {
+  const password = await req.body.password
+  const username = await req.body.username
+
+  const User = {
+    "user_name": username,
+    "password": password
+  }
+
+  if (await UserSchema.findOne(User)) {
+    res.send("Authenticated successfully")
+    
+  } else {
+    res.send("Login incorrect")
+  }
+})
+
 App.post("/api/v1/message/send", async (req,res) => {
   const username = await req.body.username
   const password = await req.body.password
